@@ -352,13 +352,30 @@ Publisher & & & & \\
 \end{tabular}
 \end{center}
 
-
+\begin{figure*}[p]
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/vdqi-title.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ei-title.pdf}}
+\\\vspace{\baselineskip}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ve-title.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/be-title.pdf}}
+\end{figure*}
 
 \newthought{The tables of contents} in Tufte's books give us our first
 glimpse of the structure of the main matter.  \VDQI is split into two
 parts, each containing some number of chapters.  His other three books only
 contain chapters---they're not broken into parts.
 
+\begin{figure*}[p]\index{table of contents}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/vdqi-contents.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ei-contents.pdf}}
+\\\vspace{\baselineskip}
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/ve-contents.pdf}}
+\hfill
+\fbox{\includegraphics[width=0.45\linewidth]{graphics/be-contents.pdf}}
+\end{figure*}
 
 
 \section{Typefaces}\label{sec:typefaces1}\index{typefaces}
@@ -565,7 +582,13 @@ Full page--width figures and tables may be placed in \docenvdef{figure*} or
 use the \docenvdef{marginfigure} or \docenvdef{margintable} environments as follows
 (see figure~\ref{fig:marginfig}):
 
-
+\begin{marginfigure}%
+  \includegraphics[width=\linewidth]{helix}
+  \caption{This is a margin figure.  The helix is defined by 
+    $x = \cos(2\pi z)$, $y = \sin(2\pi z)$, and $z = [0, 2.7]$.  The figure was
+    drawn using Asymptote (\url{http://asymptote.sf.net/}).}
+  \label{fig:marginfig}
+\end{marginfigure}
 
 \begin{docspec}
 \textbackslash begin\{marginfigure\}\\
@@ -589,6 +612,21 @@ The \docenv{marginfigure} and \docenv{margintable} environments accept an option
 Figure~\ref{fig:fullfig} is an example of the \docenv{figure*}
 environment and figure~\ref{fig:textfig} is an example of the normal
 \docenv{figure} environment.
+
+\begin{figure*}[h]
+  \includegraphics[width=\linewidth]{sine.pdf}%
+  \caption{This graph shows $y = \sin x$ from about $x = [-10, 10]$.
+  \emph{Notice that this figure takes up the full page width.}}%
+  \label{fig:fullfig}%
+\end{figure*}
+
+\begin{figure}
+  \includegraphics{hilbertcurves.pdf}
+%  \checkparity This is an \pageparity\ page.%
+  \caption[Hilbert curves of various degrees $n$.][6pt]{Hilbert curves of various degrees $n$. \emph{Notice that this figure only takes up the main textblock width.}}
+  \label{fig:textfig}
+  %\zsavepos{pos:textfig}
+\end{figure}
 
 As with sidenotes and marginnotes, a caption may sometimes require vertical
 adjustment. The \doccmddef{caption} command now takes a second optional
@@ -1084,8 +1122,6 @@ class.  In this situation, \docopt{class option} is ignored.}
 You specified the \docclsopt{symmetric} document class option.  This option automatically forces the \docclsopt{twoside} option as well.  See page~\pageref{clsopt:symmetric} for more information on the \docclsopt{symmetric} class option.}
 
 
-ha
-
 \section{Package Dependencies}\label{sec:dependencies}
 The following is a list of packages that the \TL document
 classes rely upon.  Packages marked with an asterisk are optional.
@@ -1132,7 +1168,7 @@ classes rely upon.  Packages marked with an asterisk are optional.
 
 \backmatter
 
-\bibliography{main}
+\bibliography{sample-handout}
 \bibliographystyle{plainnat}
 
 

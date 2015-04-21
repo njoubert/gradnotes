@@ -1,14 +1,14 @@
 
 
 R = main
-R_output = ResearchNotesOnQuadrotorCinematography.pdf
+R_output = ResearchNotesOnQuadrotorCinematography
 STY = *.cls
 FIG = images/*.pdf
 
 # For GNU completeness
 .DEFAULT_GOAL := pdf
 
-pdf: $(R).pdf
+pdf: $(R_output).pdf
 
 $(R).bbl: $(R).bib
 	pdflatex $(R)
@@ -20,8 +20,9 @@ $(R).bbl: $(R).bib
 
 $(R).pdf: *.tex $(STY) $(R).bbl
 	pdflatex $(R)
-	cp $(R).pdf $(R_name).pdf
 
+$(R_output).pdf: $(R).pdf
+	cp $(R).pdf $(R_output).pdf
 
 clean:
 	rm -f $(R).log $(R).aux $(R).bbl $(R).blg $(R).out
