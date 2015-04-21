@@ -1,6 +1,6 @@
 
 R = main
-R_output = ResearchNotesOnQuadrotorCinematography
+R_output = NotesOnQuadrotorCinematography
 STY = *.cls
 CHAPTER_FILES = $(shell find chapters/ -name '*.tex' -type f -print)
 
@@ -21,7 +21,6 @@ $(R).pdf: *.tex $(STY) $(CHAPTER_FILES) $(R).bbl
 	pdflatex $(R)
 
 $(R_output).pdf: $(R).pdf
-	echo $(RESURSIVE_MANIFEST)
 	cp $(R).pdf $(R_output).pdf
 
 clean:
