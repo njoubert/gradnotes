@@ -9,7 +9,7 @@ CHAPTER_FILES = $(shell find chapters/ -name '*.tex' -type f -print)
 
 pdf: $(R_output).pdf
 
-$(R).bbl: $(R).bib
+$(R).bbl: $(CHAPTER_FILES)  $(R).bib
 	pdflatex $(R)
 	bibtex $(R)
 	texindy --language english $(R).idx
